@@ -38,9 +38,6 @@
 }
 
 /*Custom styles*/
-.container {
-
-}
 
 .buttons-wrap {
   margin-bottom: 30px;
@@ -52,10 +49,17 @@
 
 .button {
   padding: 10px 15px;
+  cursor: pointer;
+}
+
+@keyframes flash {
+  0%   { box-shadow: 0px 9px 13px 0px rgba(235,235,235,0);}
+  50%  { box-shadow: 0px 9px 13px 0px rgba(232,227,232,1);}
+  100% { box-shadow: 0px 9px 13px 0px rgba(235,235,235,0);}
 }
 
 .button--active {
-  box-shadow: -14px 14px 0px 0px rgba(184,184,184,0.26);
+  animation: flash 0.3s ease-in-out;
 }
 
 .button--game {

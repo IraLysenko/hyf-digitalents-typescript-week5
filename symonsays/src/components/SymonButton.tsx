@@ -9,26 +9,19 @@ export enum Colors {
 
 export type SymonButtonsProtoTypes = {
     color: Colors;
-    active: true | false;
-    pressed: true | false;
+    onClick: (event: React.MouseEvent<HTMLButtonElement>) => void
 }
 
 export function SymonButton(props:SymonButtonsProtoTypes) {
     const color = props.color;
-    let buttonClass = "button button--game";
-    if(props.active) {
-        buttonClass += ' button--game--active'
-    }
-    if(props.pressed){
-        buttonClass += ' button--game--pressed'
-    }
 
     return (
         <button
             type="button"
-            className={buttonClass}
+            className="button button--game"
             style={{backgroundColor: color}}
             data-color={color}
+            onClick={props.onClick}
         >
         </button>
     );
