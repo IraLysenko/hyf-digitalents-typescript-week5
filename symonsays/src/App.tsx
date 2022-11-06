@@ -30,19 +30,21 @@ class App extends React.Component<IProps, GameState> {
 
   playSequence = (ids: Array<string>) => {
     const buttons = document.querySelectorAll('.button--game');
-
     for(let i=0; i <= ids.length; i++) {
 
       buttons.forEach(button => {
         const dataColor = button.getAttribute('data-color');
 
         if(dataColor === ids[i]) {
+          console.log('check')
           setTimeout(() => {
             button.classList.add('button--active');
-          }, i * this.step);
+            console.log('dataColor  ' + dataColor +'  '+ i+'time ' + (i * this.step));
+          }, i * this.step + 100);
 
           setTimeout(() => {
             button.classList.remove('button--active');
+            console.log('removedataColor  ' + dataColor +'  '+ i +'time '+ (this.step + (i * this.step)));
           }, this.step + (i * this.step));
         }
       })
